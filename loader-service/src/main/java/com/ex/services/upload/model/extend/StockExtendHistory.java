@@ -7,8 +7,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.TableGenerator;
 import java.math.BigDecimal;
 import java.time.LocalDate;

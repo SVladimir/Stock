@@ -10,8 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class StockHistoryFactory {
 
-  public StockHistoryFactory() {
-  }
 
   public StockHistory createStockHistory(String stockName) {
     return switch (stockName) {

@@ -27,7 +27,7 @@ import org.springframework.web.multipart.MultipartFile;
 public class CSVHelper {
 
   private static final Logger LOGGER = LoggerFactory.getLogger(CSVHelper.class);
-  public static String TYPE = "text/csv";
+  private static final String TYPE = "text/csv";
   private final StockHistoryFactory stockHistoryFactory;
 
   public CSVHelper(StockHistoryFactory stockHistoryFactory) {
@@ -74,7 +74,7 @@ public class CSVHelper {
 
       return stockHistories;
     } catch (IOException e) {
-      LOGGER.error("fail to parse CSV records for " + stockName);
+      LOGGER.error("fail to parse CSV records for {}", stockName);
       throw new CsvParseException("fail to parse CSV records for " + stockName);
     }
   }

@@ -10,9 +10,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class StockExtendHistoryFactory {
 
-  public StockExtendHistoryFactory() {
-  }
-
   public StockExtendHistory createStockHistory(Class tClass) {
     return switch (tClass.getSimpleName()) {
       case "AaplStockHistory" -> new AaplStockExtendHistory();

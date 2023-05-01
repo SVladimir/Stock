@@ -1,16 +1,12 @@
 package com.ex.services.upload.model.stock;
 
-import com.ex.services.upload.listener.StockEntityListener;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
-import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.SequenceGenerator;
 import jakarta.persistence.TableGenerator;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -23,7 +19,6 @@ import lombok.Setter;
 @TableGenerator(name = "StockHistory_Gen", table = "ID_GEN", pkColumnName = "GEN_NAME", valueColumnName = "GEN_VAL", pkColumnValue = "StockHistory_Id", initialValue = 1, allocationSize = 1)
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
-@EntityListeners({StockEntityListener.class})
 public abstract class StockHistory {
 
   @Id
