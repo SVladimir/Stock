@@ -47,23 +47,26 @@ The API Gateway is used to discover available services within the application. I
 ### Zipkin
 
 Zipkin is a distributed tracing system that helps to troubleshoot latency issues in microservices. It is accessible at `http://localhost:9411`.
+http://localhost:9411/zipkin/
 
 ### OpenAPI Documentation
 
 The Stock Management Application provides OpenAPI documentation for its RESTful API endpoints. To view and interact with the API documentation, visit `http://localhost:8081/swagger-ui.html`.
+http://localhost:8060/webjars/swagger-ui/index.html
 
 ### StockController
 Get stock history for a specific symbol:
 
 GET /api/stock/{symbol}
-
+http://localhost:8083/api/stocks/sortlist
+GET /api/stock/normalize
+http://localhost:8083/api/stocks/normalize
+key=dateStr value=MM/DD/YYYY
+GET /api/stock/{symbol}
+http://localhost:8080/api/stocks/{symbol}
 Replace {symbol} with the desired stock symbol.
-
-Get stock insights for a specific symbol:
-
-GET /api/stock/{symbol}/insights
-
-Replace {symbol} with the desired stock symbol.
+GET /api/stock/normalize
+http://localhost:8083/api/stocks/summary
 
 ### CSVController
 Upload a CSV file containing stock data:

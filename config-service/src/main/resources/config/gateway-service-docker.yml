@@ -54,12 +54,9 @@ spring:
 springdoc:
   swagger-ui:
     urls:
-      - name: employee
-        url: /v3/api-docs/employee
-      - name: department
-        url: /v3/api-docs/department
-      - name: organization
-        url: /v3/api-docs/organization
+      - name: loader
+        url: /v3/api-docs/loader
+
 
 management:
   tracing:
