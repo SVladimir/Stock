@@ -31,6 +31,6 @@ public class StockEntityListener implements ApplicationContextAware {
     StockExtendHistory stockExtendHistory = stockExtendHistoryFactory.createStockHistory(stockHistory.getClass());
     stockExtendHistory.setDate(stockHistory.getDate());
     stockExtendHistory.setNormalize(normalize);
-    stockHistoryExtendService.save(stockExtendHistory);
+ //   stockHistoryExtendService.save(stockExtendHistory);
   }
 }

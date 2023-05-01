@@ -11,23 +11,23 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.TableGenerator;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import lombok.Getter;
 import lombok.Setter;
 
-@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
+
 @Setter
 @Getter
+@TableGenerator(name = "StockHistory_Gen", table = "ID_GEN", pkColumnName = "GEN_NAME", valueColumnName = "GEN_VAL", pkColumnValue = "StockHistory_Id", initialValue = 1, allocationSize = 1)
 @Entity
-
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 @EntityListeners({StockEntityListener.class})
 public abstract class StockHistory {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stock_history_seq")
-  @SequenceGenerator(name = "stock_history_seq", sequenceName = "stock_history_seq", allocationSize = 1)
-
+  @GeneratedValue(strategy = GenerationType.TABLE)
   private Long id;
 
   @Column(nullable = false)

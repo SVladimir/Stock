@@ -4,7 +4,9 @@ import com.ex.services.upload.factory.StockExtendHistoryRepositoryFactory;
 import com.ex.services.upload.model.extend.StockExtendHistory;
 import com.ex.services.upload.model.stock.StockHistory;
 import com.ex.services.upload.repository.extend.StockHistoryExtendRepository;
+import com.ex.services.upload.repository.stock.StockHistoryRepository;
 import jakarta.transaction.Transactional;
+import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +29,15 @@ public class StockHistoryExtendService {
     } else {
       throw new RuntimeException(
           "No repository found for stockName: " + stockExtendHistory.getClass().getName());
+    }
+  }
+
+  public <T extends StockExtendHistory> void saveAll(String stockName, List<T> stockExtendHistories) {
+    StockHistoryExtendRepository<T> repository = stockExtendHistoryRepositoryFactory.getRepository(stockName);
+    if (repository != null) {
+      repository.saveAll(stockExtendHistories);
+    } else {
+      throw new RuntimeException("No repository found for stockName: " + stockName);
     }
   }
   public <T extends StockHistory> void deleteAll(String stockName) {

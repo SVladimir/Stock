@@ -18,7 +18,6 @@ public class StockHistoryService {
   public StockHistoryService(StockHistoryRepositoryFactory stockHistoryRepositoryFactory) {
     this.stockHistoryRepositoryFactory = stockHistoryRepositoryFactory;
   }
-  @Transactional
   public <T extends StockHistory> void saveAll(String stockName, List<T> stockHistories) {
     StockHistoryRepository<T> repository = stockHistoryRepositoryFactory.getRepository(stockName);
     if (repository != null) {

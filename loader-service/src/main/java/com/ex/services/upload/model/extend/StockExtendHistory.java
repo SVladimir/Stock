@@ -9,6 +9,7 @@ import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.TableGenerator;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import lombok.Getter;
@@ -21,9 +22,16 @@ import lombok.Setter;
 public abstract class StockExtendHistory {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stock_history_extend_seq")
-  @SequenceGenerator(name = "stock_history_extend_seq", sequenceName = "stock_history_extend_seq", allocationSize = 1)
-
+  @GeneratedValue(strategy = GenerationType.TABLE, generator = "StockExtendHistory_Gen")
+  @TableGenerator(
+      name = "StockExtendHistory_Gen",
+      table = "ID_GEN",
+      pkColumnName = "GEN_NAME",
+      valueColumnName = "GEN_VAL",
+      pkColumnValue = "StockExtendHistory_Id",
+      initialValue = 1,
+      allocationSize = 1
+  )
   private Long id;
   @Column(nullable = false)
   private LocalDate date;
