@@ -3,6 +3,7 @@ package com.ex.services.upload.service;
 import com.ex.services.upload.factory.StockHistoryRepositoryFactory;
 import com.ex.services.upload.model.stock.StockHistory;
 import com.ex.services.upload.repository.stock.StockHistoryRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -17,7 +18,7 @@ public class StockHistoryService {
   public StockHistoryService(StockHistoryRepositoryFactory stockHistoryRepositoryFactory) {
     this.stockHistoryRepositoryFactory = stockHistoryRepositoryFactory;
   }
-
+  @Transactional
   public <T extends StockHistory> void saveAll(String stockName, List<T> stockHistories) {
     StockHistoryRepository<T> repository = stockHistoryRepositoryFactory.getRepository(stockName);
     if (repository != null) {

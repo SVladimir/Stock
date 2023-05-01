@@ -10,6 +10,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Inheritance;
 import jakarta.persistence.InheritanceType;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.SequenceGenerator;
 import java.math.BigDecimal;
 import java.time.LocalDate;
 import lombok.Getter;
@@ -19,11 +20,14 @@ import lombok.Setter;
 @Setter
 @Getter
 @Entity
+
 @EntityListeners({StockEntityListener.class})
 public abstract class StockHistory {
 
   @Id
-  @GeneratedValue(strategy = GenerationType.SEQUENCE)
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stock_history_seq")
+  @SequenceGenerator(name = "stock_history_seq", sequenceName = "stock_history_seq", allocationSize = 1)
+
   private Long id;
 
   @Column(nullable = false)
