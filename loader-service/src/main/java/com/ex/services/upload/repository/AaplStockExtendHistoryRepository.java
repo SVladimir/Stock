@@ -14,5 +14,4 @@ public interface AaplStockExtendHistoryRepository extends
     return AaplStockExtendHistory.class;
   }
 
-  Optional<AaplStockExtendHistory> findByDate(LocalDate date);
 }

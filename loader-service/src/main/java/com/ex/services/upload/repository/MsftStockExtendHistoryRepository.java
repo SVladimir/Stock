@@ -13,5 +13,5 @@ public interface MsftStockExtendHistoryRepository extends
   default Class<MsftStockExtendHistory> getStockHistoryEntityClass() {
     return MsftStockExtendHistory.class;
   }
-  Optional<MsftStockExtendHistory> findByDate(LocalDate date);
+
 }

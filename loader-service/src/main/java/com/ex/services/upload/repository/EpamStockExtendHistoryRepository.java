@@ -14,5 +14,4 @@ public interface EpamStockExtendHistoryRepository extends
   default Class<EpamStockExtendHistory> getStockHistoryEntityClass() {
     return EpamStockExtendHistory.class;
   }
-  Optional<EpamStockExtendHistory> findByDate(LocalDate date);
 }

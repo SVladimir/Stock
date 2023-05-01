@@ -12,5 +12,5 @@ public interface StockHistoryExtendRepository<T extends StockExtendHistory> exte
     return (Class<T>) StockExtendHistory.class;
   }
 
-  Optional<? extends StockExtendHistory> findByDate(LocalDate date);
+  Optional<T> findByDate(LocalDate date);
 }

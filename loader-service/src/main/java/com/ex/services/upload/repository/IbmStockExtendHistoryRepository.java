@@ -14,5 +14,4 @@ public interface IbmStockExtendHistoryRepository extends
   default Class<IbmStockExtendHistory> getStockHistoryEntityClass() {
     return IbmStockExtendHistory.class;
   }
-  Optional<IbmStockExtendHistory> findByDate(LocalDate date);
 }
