@@ -1,15 +1,10 @@
 package com.ex.services.upload.factory;
 
-import com.ex.services.upload.model.AaplStockExtendHistory;
-import com.ex.services.upload.model.AaplStockHistory;
-import com.ex.services.upload.model.EpamStockExtendHistory;
-import com.ex.services.upload.model.EpamStockHistory;
-import com.ex.services.upload.model.IbmStockExtendHistory;
-import com.ex.services.upload.model.IbmStockHistory;
-import com.ex.services.upload.model.MsftStockExtendHistory;
-import com.ex.services.upload.model.MsftStockHistory;
-import com.ex.services.upload.model.StockExtendHistory;
-import com.ex.services.upload.model.StockHistory;
+import com.ex.services.upload.model.extend.AaplStockExtendHistory;
+import com.ex.services.upload.model.extend.EpamStockExtendHistory;
+import com.ex.services.upload.model.extend.IbmStockExtendHistory;
+import com.ex.services.upload.model.extend.MsftStockExtendHistory;
+import com.ex.services.upload.model.extend.StockExtendHistory;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,7 +1,6 @@
-package com.ex.services.upload.model;
+package com.ex.services.upload.model.extend;
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
 @Entity

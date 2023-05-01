@@ -1,7 +1,7 @@
 package com.ex.services.upload.repository.extend;
 
 import com.ex.services.upload.annotation.StockNameExtend;
-import com.ex.services.upload.model.IbmStockExtendHistory;
+import com.ex.services.upload.model.extend.IbmStockExtendHistory;
 
 @StockNameExtend("IBM")
 public interface IbmStockExtendHistoryRepository extends

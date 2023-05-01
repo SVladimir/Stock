@@ -1,15 +1,10 @@
 package com.ex.services.upload.factory;
 
-import com.ex.services.upload.annotation.StockName;
-import com.ex.services.upload.model.AaplStockHistory;
-import com.ex.services.upload.model.EpamStockHistory;
-import com.ex.services.upload.model.IbmStockHistory;
-import com.ex.services.upload.model.MsftStockHistory;
-import com.ex.services.upload.model.StockHistory;
-import java.util.HashMap;
-import java.util.Map;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
+import com.ex.services.upload.model.stock.AaplStockHistory;
+import com.ex.services.upload.model.stock.EpamStockHistory;
+import com.ex.services.upload.model.stock.IbmStockHistory;
+import com.ex.services.upload.model.stock.MsftStockHistory;
+import com.ex.services.upload.model.stock.StockHistory;
 import org.springframework.stereotype.Service;
 
 @Service

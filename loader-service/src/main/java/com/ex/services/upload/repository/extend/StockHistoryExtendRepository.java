@@ -1,6 +1,6 @@
 package com.ex.services.upload.repository.extend;
 
-import com.ex.services.upload.model.StockExtendHistory;
+import com.ex.services.upload.model.extend.StockExtendHistory;
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;

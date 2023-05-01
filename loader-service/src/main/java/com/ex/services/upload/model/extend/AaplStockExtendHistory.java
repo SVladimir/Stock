@@ -1,8 +1,6 @@
-package com.ex.services.upload.model;
+package com.ex.services.upload.model.extend;
 
-import com.ex.services.upload.listener.StockEntityListener;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EntityListeners;
 import jakarta.persistence.Table;
 
 @Entity

@@ -1,4 +1,4 @@
-package com.ex.services.upload.model;
+package com.ex.services.upload.model.extend;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;

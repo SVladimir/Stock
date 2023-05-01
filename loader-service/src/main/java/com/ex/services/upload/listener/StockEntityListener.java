@@ -1,7 +1,7 @@
 package com.ex.services.upload.listener;
 import com.ex.services.upload.factory.StockExtendHistoryFactory;
-import com.ex.services.upload.model.StockExtendHistory;
-import com.ex.services.upload.model.StockHistory;
+import com.ex.services.upload.model.extend.StockExtendHistory;
+import com.ex.services.upload.model.stock.StockHistory;
 import com.ex.services.upload.service.StockHistoryExtendService;
 import jakarta.persistence.PostPersist;
 import java.math.BigDecimal;

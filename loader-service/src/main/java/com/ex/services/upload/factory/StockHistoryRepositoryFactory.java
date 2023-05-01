@@ -1,7 +1,7 @@
 package com.ex.services.upload.factory;
 
 import com.ex.services.upload.annotation.StockName;
-import com.ex.services.upload.model.StockHistory;
+import com.ex.services.upload.model.stock.StockHistory;
 import com.ex.services.upload.repository.stock.StockHistoryRepository;
 import java.util.Arrays;
 import java.util.Map;

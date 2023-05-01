@@ -2,7 +2,7 @@ package com.ex.services.upload.service;
 
 import com.ex.services.upload.dto.StockNormalizeDTO;
 import com.ex.services.upload.factory.StockExtendHistoryRepositoryFactory;
-import com.ex.services.upload.model.StockExtendHistory;
+import com.ex.services.upload.model.extend.StockExtendHistory;
 import com.ex.services.upload.repository.extend.StockHistoryExtendRepository;
 import java.math.BigDecimal;
 import java.time.LocalDate;

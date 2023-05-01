@@ -1,7 +1,7 @@
 package com.ex.services.upload.repository.extend;
 
 import com.ex.services.upload.annotation.StockNameExtend;
-import com.ex.services.upload.model.MsftStockExtendHistory;
+import com.ex.services.upload.model.extend.MsftStockExtendHistory;
 
 @StockNameExtend("MSFT")
 public interface MsftStockExtendHistoryRepository extends
