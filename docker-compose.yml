@@ -31,48 +31,6 @@ services:
       retries: 3
     environment:
       SPRING_PROFILES_ACTIVE: docker
-  employee-service:
-    image: exstock/employee-service:1.2-SNAPSHOT
-    ports:
-      - "8080"
-    depends_on:
-      discovery-service:
-        condition: service_healthy
-    links:
-      - config-service
-      - discovery-service
-      - zipkin
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-  department-service:
-    image: exstock/department-service:1.2-SNAPSHOT
-    ports:
-      - "8080"
-    depends_on:
-      discovery-service:
-        condition: service_healthy
-    links:
-      - config-service
-      - discovery-service
-      - employee-service
-      - zipkin
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
-  organization-service:
-    image: exstock/organization-service:1.2-SNAPSHOT
-    ports:
-      - "8080"
-    depends_on:
-      discovery-service:
-        condition: service_healthy
-    links:
-      - config-service
-      - discovery-service
-      - employee-service
-      - department-service
-      - zipkin
-    environment:
-      SPRING_PROFILES_ACTIVE: docker
   gateway-service:
     image: exstock/gateway-service:1.1-SNAPSHOT
     ports:
@@ -85,9 +43,6 @@ services:
     links:
       - config-service
       - discovery-service
-      - employee-service
-      - department-service
-      - organization-service
       - zipkin
       - loader-service
   mysqldb:
