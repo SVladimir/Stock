@@ -41,9 +41,9 @@ spring:
       - id: loader-service
         uri: lb://loader-service
         predicates:
-        - Path=/loader-service/**
+        - Path=/loader/**
         filters:
-        - RewritePath=/loader-service/(?<path>.*), /$\{path}
+        - RewritePath=/loader/(?<path>.*), /$\{path}
       - id: openapi
         uri: http://localhost:${server.port}
         predicates:
@@ -55,8 +55,7 @@ springdoc:
   swagger-ui:
     urls:
       - name: loader
-        url: /v3/api-docs/loader-service
-
+        url: /v3/api-docs/loader
 
 management:
   tracing:

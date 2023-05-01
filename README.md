@@ -53,6 +53,11 @@ http://localhost:9411/zipkin/
 
 The Stock Management Application provides OpenAPI documentation for its RESTful API endpoints. To view and interact with the API documentation, visit `http://localhost:8081/swagger-ui.html`.
 http://localhost:8060/webjars/swagger-ui/index.html
+http://localhost:8060/v3/api-docs
+
+### SPRING EUREKA
+Discovery server for service management
+http://localhost:8061/
 
 ### StockController
 Get stock history for a specific symbol:
