@@ -32,8 +32,9 @@ CSVHelper csvHelper;
       throw new RuntimeException("fail to store csv data: " + e.getMessage());
     }
   }
-  @CacheEvict(value = "stockSummary", allEntries = true)
+  @CacheEvict(value = {"stockSummary", "stockNormalize"}, allEntries = true)
   public void clearStockSummaryCache() {
     // This method will remove all entries from the 'stockSummary' cache when called.
   }
+
 }

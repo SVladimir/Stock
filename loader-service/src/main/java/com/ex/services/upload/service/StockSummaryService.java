@@ -1,13 +1,11 @@
 package com.ex.services.upload.service;
 
-import com.ex.services.upload.dto.StockNormalizeDTO;
 import com.ex.services.upload.dto.StockSummaryDTO;
 import com.ex.services.upload.factory.StockHistoryRepositoryFactory;
 import com.ex.services.upload.model.StockHistory;
-import com.ex.services.upload.repository.StockHistoryRepository;
+import com.ex.services.upload.repository.stock.StockHistoryRepository;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
-import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;

@@ -2,7 +2,7 @@ package com.ex.services.upload.service;
 
 import com.ex.services.upload.factory.StockHistoryRepositoryFactory;
 import com.ex.services.upload.model.StockHistory;
-import com.ex.services.upload.repository.StockHistoryRepository;
+import com.ex.services.upload.repository.stock.StockHistoryRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
