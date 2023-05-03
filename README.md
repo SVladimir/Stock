@@ -1,5 +1,7 @@
 # Stock Management Application
 
+[![SonarCloud](https://sonarcloud.io/images/project_badges/sonarcloud-black.svg)](https://sonarcloud.io/dashboard?id=SVladimir_Stock)
+
 ## Overview
 
 The Stock Management Application is a simple yet powerful system for managing stock information. It is designed to help you track and manage stock data efficiently and effectively. The application is built using Spring Boot and provides RESTful API endpoints for managing stock and CSV data.
