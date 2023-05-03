@@ -23,7 +23,7 @@ To install and run the application, follow these steps:
 
 1. Clone the repository:
 
-git clone https://github.com/SVladimir/Stock.git
+git clone https://gitbud.epam.com/vladimir_shmalko/exStock
 
 
 2. Navigate to the project folder:
