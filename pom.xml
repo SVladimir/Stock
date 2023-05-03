@@ -7,8 +7,8 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<sonar.projectKey>exstock_sample-spring-microservices-new</sonar.projectKey>
-		<sonar.organization>exstock</sonar.organization>
+		<sonar.projectKey>SVladimir_Stock</sonar.projectKey>
+		<sonar.organization>SVladimir</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
   <dependencies>
