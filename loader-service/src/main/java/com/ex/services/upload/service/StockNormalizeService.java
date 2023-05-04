@@ -9,19 +9,15 @@ import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 @Service
+@RequiredArgsConstructor
 public class StockNormalizeService {
 
   private final StockExtendHistoryRepositoryFactory repositoryFactory;
-
-  @Autowired
-  public StockNormalizeService(StockExtendHistoryRepositoryFactory repositoryFactory) {
-    this.repositoryFactory = repositoryFactory;
-  }
 
   @Cacheable("stockNormalize")
   public StockNormalizeDTO getNormalizeDate(LocalDate date) {
@@ -37,7 +33,7 @@ public class StockNormalizeService {
 
               return new StockNormalizeDTO(stockName, normalize);
             }
-        ).sorted(Comparator.comparing(StockNormalizeDTO::getNormalize).reversed()).findFirst()
+        ).max(Comparator.comparing(StockNormalizeDTO::getNormalize))
         .get();
 
   }

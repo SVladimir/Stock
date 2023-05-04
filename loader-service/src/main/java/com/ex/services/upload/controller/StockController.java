@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.NoSuchElementException;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,17 +22,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/api/stocks")
+@RequiredArgsConstructor
 public class StockController {
 
   private final StockSummaryService stockSummaryService;
   private final StockNormalizeService stockNormalizeService;
-
-  @Autowired
-  public StockController(StockSummaryService stockSummaryService,
-      StockNormalizeService stockNormalizeService) {
-    this.stockSummaryService = stockSummaryService;
-    this.stockNormalizeService = stockNormalizeService;
-  }
 
 
   @GetMapping("/summary")
@@ -47,7 +41,7 @@ public class StockController {
 
   @GetMapping("/{stockName}")
   public ResponseEntity<?> getStockSummury(@PathVariable("stockName") String stockName) {
-    String message = "";
+    var message = "";
     try {
       StockSummaryDTO stockSummaryDTO = stockSummaryService.getStockSummaryForMonth().stream()
           .filter(stock -> stockName.equals(stock.getStockName())).findAny().stream().findAny()
@@ -67,7 +61,7 @@ public class StockController {
 
   @GetMapping("/normalize")
   public ResponseEntity<?> getStockSummaryForMonth(@RequestParam("dateStr") String dateStr) {
-    String message = "";
+    var message = "";
     try {
       DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
       LocalDate date = LocalDate.parse(dateStr, formatter);

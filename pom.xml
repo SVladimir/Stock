@@ -10,6 +10,8 @@
 		<sonar.projectKey>SVladimir_Stock</sonar.projectKey>
 		<sonar.organization>SVladimir</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
+		<maven.compiler.source>17</maven.compiler.source>
+		<maven.compiler.target>17</maven.compiler.target>
 	</properties>
   <dependencies>
     <dependency>
@@ -24,12 +26,6 @@
       <version>RELEASE</version>
       <scope>compile</scope>
     </dependency>
-		<dependency>
-			<groupId>org.projectlombok</groupId>
-			<artifactId>lombok</artifactId>
-			<version>RELEASE</version>
-			<scope>compile</scope>
-		</dependency>
     <dependency>
       <groupId>org.springframework.data</groupId>
       <artifactId>spring-data-jpa</artifactId>
