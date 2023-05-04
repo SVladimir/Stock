@@ -33,7 +33,7 @@ public class StockNormalizeService {
 
               return new StockNormalizeDTO(stockName, normalize);
             }
-        ).max(Comparator.comparing(StockNormalizeDTO::getNormalize))
+        ).max(Comparator.comparing(StockNormalizeDTO::normalize))
         .get();
 
   }

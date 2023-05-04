@@ -1,15 +1,9 @@
 package com.ex.services.upload.dto;
 
 import java.math.BigDecimal;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
-@AllArgsConstructor
-public class StockNormalizeDTO {
+public record StockNormalizeDTO(
+    String stockName,
+    BigDecimal normalize) {
 
-  private String stockName;
-  private BigDecimal normalize;
 }

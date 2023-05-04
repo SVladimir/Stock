@@ -44,11 +44,11 @@ public class StockController {
     var message = "";
     try {
       StockSummaryDTO stockSummaryDTO = stockSummaryService.getStockSummaryForMonth().stream()
-          .filter(stock -> stockName.equals(stock.getStockName())).findAny().stream().findAny()
+          .filter(stock -> stockName.equals(stock.stockName())).findAny().stream().findAny()
           .get();
-      StockDataDTO stockDataDTO = new StockDataDTO(stockSummaryDTO.getStockName(),
-          stockSummaryDTO.getOldest(), stockSummaryDTO.getNewest(), stockSummaryDTO.getMin(),
-          stockSummaryDTO.getMax());
+      StockDataDTO stockDataDTO = new StockDataDTO(stockSummaryDTO.stockName(),
+          stockSummaryDTO.oldest(), stockSummaryDTO.newest(), stockSummaryDTO.min(),
+          stockSummaryDTO.max());
       return ResponseEntity.ok(stockDataDTO);
     } catch (
         NoSuchElementException noSuchElementException) {

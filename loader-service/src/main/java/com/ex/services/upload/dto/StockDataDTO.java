@@ -1,18 +1,12 @@
 package com.ex.services.upload.dto;
 
 import java.math.BigDecimal;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
-@AllArgsConstructor
-public class StockDataDTO {
+public record StockDataDTO(
+    String stockName,
+    BigDecimal oldest,
+    BigDecimal newest,
+    BigDecimal min,
+    BigDecimal max) {
 
-  private String stockName;
-  private BigDecimal oldest;
-  private BigDecimal newest;
-  private BigDecimal min;
-  private BigDecimal max;
 }
