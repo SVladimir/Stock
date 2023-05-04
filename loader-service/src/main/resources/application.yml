@@ -1,4 +1,6 @@
 spring:
+  application:
+    name: loader-service
   cache:
     type: simple
   config:
@@ -8,28 +10,6 @@ spring:
   datasource:
     username: root
     url: jdbc:mysql://localhost:3306/testdb?useSSL=false
-    password: '123456'
-  jpa:
-    properties:
-      hibernate:
-        dialect: org.hibernate.dialect.MySQL5Dialect
-    hibernate:
-      ddl-auto: update
-  servlet:
-    multipart:
-      max-request-size: 2MB
-      max-file-size: 2MB
----
-spring:
-  application:
-    name: upload-service
-  cache:
-    type: simple
-  config:
-    import: "optional:configserver:http://config-service:8088"
-  datasource:
-    username: root
-    url: jdbc:mysql://localhost:3307/testdb?useSSL=false
     password: '123456'
   jpa:
     properties:

@@ -71,7 +71,7 @@ services:
         "spring.jpa.hibernate.ddl-auto" : "update"
       }'
     ports:
-      - "8083:8080"
+      - "8080"
     links:
       - config-service
       - discovery-service

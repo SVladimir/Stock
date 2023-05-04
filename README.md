@@ -33,10 +33,11 @@ git clone https://gitbud.epam.com/vladimir_shmalko/exStock
 cd Stock
 
 
-3. Build and run the application using Docker Compose:
+3. Build the application using Maven:
+mvn clean install --activate-profiles build-image
 
+4. Run the application using Docker Compose: 
 docker-compose up -d
-
 
 This will build and start all the required services, including the Stock Management Application, API Gateway, and Zipkin.
 
@@ -65,15 +66,15 @@ http://localhost:8061/
 Get stock history for a specific symbol:
 
 GET /api/stock/{symbol}
-http://localhost:8083/api/stocks/sortlist
+http://localhost:8060/loader/api/stocks/sortlist
 GET /api/stock/normalize
-http://localhost:8083/api/stocks/normalize
+http://localhost:8060/loader/api/stocks/normalize
 key=dateStr value=MM/DD/YYYY
 GET /api/stock/{symbol}
-http://localhost:8080/api/stocks/{symbol}
+http://localhost:8060/loader/api/stocks/{symbol}
 Replace {symbol} with the desired stock symbol.
 GET /api/stock/normalize
-http://localhost:8083/api/stocks/summary
+http://localhost:8060/loader/api/stocks/summary
 
 ### CSVController
 Upload a CSV file containing stock data:
