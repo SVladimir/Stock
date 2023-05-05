@@ -20,7 +20,7 @@ public class StockNormalizeService {
   private final StockExtendHistoryRepositoryFactory repositoryFactory;
 
   @Cacheable("stockNormalize")
-  public StockNormalizeDTO getNormalizeDate(LocalDate date) {
+  public Optional<StockNormalizeDTO> getNormalizeDate(LocalDate date) {
     return repositoryFactory.getRepositoryMap().keySet().stream()
         .map(stockName -> {
               StockHistoryExtendRepository<? extends StockExtendHistory> repo = repositoryFactory.getRepository(
@@ -33,8 +33,7 @@ public class StockNormalizeService {
 
               return new StockNormalizeDTO(stockName, normalize);
             }
-        ).max(Comparator.comparing(StockNormalizeDTO::normalize))
-        .get();
+        ).max(Comparator.comparing(StockNormalizeDTO::normalize));
 
   }
 }

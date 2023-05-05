@@ -4,7 +4,6 @@ import com.ex.services.upload.dto.StockDataDTO;
 import com.ex.services.upload.dto.StockNormalizeDTO;
 import com.ex.services.upload.dto.StockSummaryDTO;
 import com.ex.services.upload.helper.ConverterSumtoNorm;
-import com.ex.services.upload.message.ResponseMessage;
 import com.ex.services.upload.service.StockNormalizeService;
 import com.ex.services.upload.service.StockSummaryService;
 import java.time.LocalDate;
@@ -12,8 +11,6 @@ import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.NoSuchElementException;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,37 +37,21 @@ public class StockController {
   }
 
   @GetMapping("/{stockName}")
-  public ResponseEntity<?> getStockSummury(@PathVariable("stockName") String stockName) {
-    var message = "";
-    try {
-      StockSummaryDTO stockSummaryDTO = stockSummaryService.getStockSummaryForMonth().stream()
-          .filter(stock -> stockName.equals(stock.stockName())).findAny().stream().findAny()
-          .get();
-      StockDataDTO stockDataDTO = new StockDataDTO(stockSummaryDTO.stockName(),
-          stockSummaryDTO.oldest(), stockSummaryDTO.newest(), stockSummaryDTO.min(),
-          stockSummaryDTO.max());
-      return ResponseEntity.ok(stockDataDTO);
-    } catch (
-        NoSuchElementException noSuchElementException) {
-      message = "Could not find an information about stock: " + stockName + "!";
-      return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
-          .body(new ResponseMessage(message));
-    }
-
+  public StockDataDTO getStockSummary(@PathVariable("stockName") String stockName) {
+    return stockSummaryService.getStockSummaryForMonth().stream()
+        .filter(stock -> stockName.equals(stock.stockName())).findAny().stream().findAny()
+        .map(stockSummaryDTO -> new StockDataDTO(stockSummaryDTO.stockName(),
+            stockSummaryDTO.oldest(), stockSummaryDTO.newest(), stockSummaryDTO.min(),
+            stockSummaryDTO.max())).orElseThrow(() -> new NoSuchElementException(
+            "Could not find an information about stock: " + stockName + "!"));
   }
 
   @GetMapping("/normalize")
-  public ResponseEntity<?> getStockSummaryForMonth(@RequestParam("dateStr") String dateStr) {
-    var message = "";
-    try {
-      DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
-      LocalDate date = LocalDate.parse(dateStr, formatter);
-      return ResponseEntity.ok(stockNormalizeService.getNormalizeDate(date));
-    } catch (
-        NoSuchElementException noSuchElementException) {
-      message = "Could not find an information about stock on date " + dateStr + "!";
-      return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED)
-          .body(new ResponseMessage(message));
-    }
+  public StockNormalizeDTO getStockSummaryForMonth(@RequestParam("dateStr") String dateStr) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/dd/yyyy");
+    LocalDate date = LocalDate.parse(dateStr, formatter);
+    return stockNormalizeService.getNormalizeDate(date)
+        .orElseThrow(() -> new NoSuchElementException(
+            "Could not find an information about stock on date " + dateStr + "!"));
   }
 }
