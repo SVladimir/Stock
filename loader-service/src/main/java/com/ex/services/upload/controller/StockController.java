@@ -3,7 +3,7 @@ package com.ex.services.upload.controller;
 import com.ex.services.upload.dto.StockDataDTO;
 import com.ex.services.upload.dto.StockNormalizeDTO;
 import com.ex.services.upload.dto.StockSummaryDTO;
-import com.ex.services.upload.helper.ConverterSumtoNorm;
+import com.ex.services.upload.helper.ConverterSumToNorm;
 import com.ex.services.upload.service.StockNormalizeService;
 import com.ex.services.upload.service.StockSummaryService;
 import java.time.LocalDate;
@@ -33,7 +33,7 @@ public class StockController {
 
   @GetMapping("/sortlist")
   public List<StockNormalizeDTO> getStockNormalize() {
-    return ConverterSumtoNorm.convert(stockSummaryService.getStockSummaryForMonth());
+    return ConverterSumToNorm.convert(stockSummaryService.getStockSummaryForMonth());
   }
 
   @GetMapping("/{stockName}")
